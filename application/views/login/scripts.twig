@@ -1,0 +1,52 @@
+
+<!--basic scripts-->
+<!--[if !IE]>-->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<!--<![endif]-->
+<!--[if IE]>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<![endif]-->
+<!--[if !IE]>-->
+<script type="text/javascript">
+    window.jQuery || document.write("<script src='/assets/ace/assets/js/jquery-2.0.3.min.js'>"+"<"+"/script>");
+</script>
+<!--<![endif]-->
+<!--[if IE]>
+<script type="text/javascript">
+window.jQuery || document.write("<script src='/assets/ace/assets/js/jquery-1.10.2.min.js'>"+"<"+"/script>");
+</script>
+<![endif]-->
+<script type="text/javascript">
+    if("ontouchend" in document) document.write("<script src='/assets/ace/assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+</script>
+<script src="/assets/ace/assets/js/bootstrap.min.js"></script>
+<!--page specific plugin scripts-->
+<!--ace scripts-->
+<script src="/assets/ace/assets/js/ace-elements.min.js"></script>
+<script src="/assets/ace/assets/js/ace.min.js"></script>
+<!--inline scripts related to this page-->
+<script type="text/javascript">
+    function show_box(id) {
+        $('.widget-box.visible').removeClass('visible');
+        $('#'+id).addClass('visible');
+    }
+    $("#btnLogin").click(function(){
+        $.ajax({
+            url:'/main/signin',
+            type:'post',
+            data:{
+                email:$('#txtEmail').val(),
+                password:$('#txtPassword').val()
+            }
+        })
+        .done(function(res){
+            console.log("Sukses",res);
+            if(res==="sukses"){
+                window.location.href = '/surveys'
+            }
+        })
+        .fail(function(err){
+            console.log("Error",err)
+        });
+    });
+</script>

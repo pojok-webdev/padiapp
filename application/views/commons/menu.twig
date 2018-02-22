@@ -1,0 +1,10 @@
+<ul class="nav nav-list">
+	{% for menu in menus %}
+	<li>
+		<a href="/{{ menu.url }}">
+			<i class="{{ menu.class }}"></i>
+			<span class="menu-text"> {{ menu.name }} </span>
+		</a>
+	</li>
+	{% endfor %}
+</ul><!--/.nav-list-->

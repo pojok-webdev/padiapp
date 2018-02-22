@@ -1,0 +1,17 @@
+<div class="ace-settings-container" id="ace-settings-container">
+    <div class="btn btn-app btn-mini btn-warning ace-settings-btn" id="ace-settings-btn">
+        <i class="icon-cog bigger-150"></i>
+    </div>
+    <div class="ace-settings-box" id="ace-settings-box">
+        {% for role in groups %}
+        <div>
+            <span class="lbl rolechange"><a href="/users/setcurrentgroup/{{ role.name }}"> {{ role.name }}</a></span>
+        </div>
+        {% endfor %}
+    </div>
+</div><!--/#ace-settings-container-->
+<script type="text/javascript">
+    $('.rolechange').click(function(){
+        console.log('Role Name',$(this).html());
+    });
+</script>
