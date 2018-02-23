@@ -1,7 +1,7 @@
 <?php
 class User extends CI_Model{
     var $auth0client_id = 'KP8LNulC5elIugFvdwH8O7JWa7H5G7AC';
-    var $username,$email,$id,$password,$salt;
+    var $username,$email,$id,$password,$salt,$pic;
     function __construct($id = null){
         parent::__construct();
         if($id!=null){
@@ -19,7 +19,7 @@ class User extends CI_Model{
         redirect('/main/login');
     }
     function get($id){
-        $sql = "select id,username,email,password,salt from users ";
+        $sql = "select id,username,email,password,salt,pic from users ";
         $sql.= "where id=".$id." ";
         $ci = & get_instance();
         $qry = $ci->db->query($sql);
@@ -29,6 +29,7 @@ class User extends CI_Model{
             $this->username = $obj->username;
             $this->id = $obj->id;
             $this->email = $obj->email;
+            $this->pic = $obj->pic;
             return $this;
         }
         return false;
