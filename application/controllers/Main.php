@@ -21,7 +21,7 @@ class Main extends CI_Controller{
     function profile(){
         $this->twig->display('admin/users/profile', array(
             'menus'=>getmenus($this->user->getcurrentgroup()),
-            'user'=>humanize($this->session->userdata('username')),
+            'user'=>$this->user->get($this->session->userdata('user_id')),
             'groups'=>$this->user->groups($this->session->userdata('user_id')),
             'currentgroup'=>$this->user->getcurrentgroup()
         ));

@@ -6,7 +6,7 @@ class Tickets extends CI_Controller{
     function edit(){
         $this->twig->display('ts/tickets/edit',array(
             'menus'=>getmenus($this->user->getcurrentgroup()),
-            'user'=>humanize($this->session->userdata('username')),
+            'user'=>$this->user->get($this->session->userdata('user_id')),
             'groups'=>$this->user->groups($this->session->userdata('user_id')),
             'currentgroup'=>$this->user->getcurrentgroup()
         ));
@@ -18,7 +18,7 @@ class Tickets extends CI_Controller{
             'totalrows'=>$totalrows,
             'links'=>getpaginationlink('/tickets/index',$totalrows),
             'menus'=>getmenus($this->user->getcurrentgroup()),
-            'user'=>humanize($this->session->userdata('username')),
+            'user'=>$this->user->get($this->session->userdata('user_id')),
             'groups'=>$this->user->groups($this->session->userdata('user_id')),
             'currentgroup'=>$this->user->getcurrentgroup()
         ));
@@ -26,7 +26,7 @@ class Tickets extends CI_Controller{
     function installadd(){
         $this->twig->display('ts/tickets/installadd', array(
             'menus'=>getmenus($this->user->getcurrentgroup()),
-            'user'=>humanize($this->session->userdata('username')),
+            'user'=>$this->user->get($this->session->userdata('user_id')),
             'groups'=>$this->user->groups($this->session->userdata('user_id')),
             'currentgroup'=>$this->user->getcurrentgroup()
         ));
@@ -34,7 +34,7 @@ class Tickets extends CI_Controller{
     function report(){
         $this->twig->display('ts/tickets/report/report',array(
             'menus'=>getmenus($this->user->getcurrentgroup()),
-            'user'=>humanize($this->session->userdata('username')),
+            'user'=>$this->user->get($this->session->userdata('user_id')),
             'groups'=>$this->user->groups($this->session->userdata('user_id')),
             'currentgroup'=>$this->user->getcurrentgroup()
         ));

@@ -6,7 +6,7 @@ class Prospects extends CI_Controller{
     function edit(){
         $this->twig->display('sales/prospects/edit',array(
             'menus'=>getmenus($this->user->getcurrentgroup()),
-            'user'=>humanize($this->session->userdata('username')),
+            'user'=>$this->user->get($this->session->userdata('user_id')),
             'groups'=>$this->user->groups($this->session->userdata('user_id')),
             'currentgroup'=>$this->user->getcurrentgroup()
         ));
@@ -18,7 +18,7 @@ class Prospects extends CI_Controller{
             'totalrows'=>$totalrows,
             'links'=>getpaginationlink('/prospects/index',$totalrows),
             'menus'=>getmenus($this->user->getcurrentgroup()),
-            'user'=>humanize($this->session->userdata('username')),
+            'user'=>$this->user->get($this->session->userdata('user_id')),
             'groups'=>$this->user->groups($this->session->userdata('user_id')),
             'currentgroup'=>$this->user->getcurrentgroup()
         ));
@@ -26,14 +26,14 @@ class Prospects extends CI_Controller{
     function installadd(){
         $this->twig->display('sales/prospects/installadd', array(
             'menus'=>getmenus($this->user->getcurrentgroup()),
-            'user'=>humanize($this->session->userdata('username')),
+            'user'=>$this->user->get($this->session->userdata('user_id')),
             'groups'=>$this->user->groups($this->session->userdata('user_id')),
             'currentgroup'=>$this->user->getcurrentgroup()
         ));
     }
     function report(){
         $this->twig->display('sales/prospects/report/report',array(
-            'user'=>humanize($this->session->userdata('username')),
+            'user'=>$this->user->get($this->session->userdata('user_id')),
             'groups'=>$this->user->groups($this->session->userdata('user_id')),
             'currentgroup'=>$this->user->getcurrentgroup()
         ));

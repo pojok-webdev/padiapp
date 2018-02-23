@@ -10,7 +10,7 @@ class Users extends CI_Controller{
     function edit(){
         $this->twig->display('admin/users/edit',array(
             'menus'=>getmenus($this->user->getcurrentgroup()),
-            'user'=>humanize($this->session->userdata('username')),
+            'user'=>$this->user->get($this->session->userdata('user_id')),
             'groups'=>$this->user->groups($this->session->userdata('user_id')),
             'currentgroup'=>$this->user->getcurrentgroup()
         ));
@@ -22,7 +22,7 @@ class Users extends CI_Controller{
             'totalrows'=>$totalrows,
             'links'=>getpaginationlink('/users/index',$totalrows),
             'menus'=>getmenus($this->user->getcurrentgroup()),
-            'user'=>humanize($this->session->userdata('username')),
+            'user'=>$this->user->get($this->session->userdata('user_id')),
             'groups'=>$this->user->groups($this->session->userdata('user_id')),
             'currentgroup'=>$this->user->getcurrentgroup()
         ));
