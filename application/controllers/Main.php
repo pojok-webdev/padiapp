@@ -18,6 +18,14 @@ class Main extends CI_Controller{
         $this->ion_auth->logout();
         redirect ('main/login');
     }
+    function profile(){
+        $this->twig->display('admin/users/profile', array(
+            'menus'=>getmenus($this->user->getcurrentgroup()),
+            'user'=>humanize($this->session->userdata('username')),
+            'groups'=>$this->user->groups($this->session->userdata('user_id')),
+            'currentgroup'=>$this->user->getcurrentgroup()
+        ));
+    }
     function signin(){
         $params = $this->input->post();
         if($this->ion_auth->login($params['email'],$params['password'])){
