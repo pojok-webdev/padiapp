@@ -3,6 +3,11 @@ class Main extends CI_Controller{
     function __construct(){
         parent::__construct();
     }
+    function choosegroup(){
+        $this->twig->display('login/choosegroup',array(
+            'groups'=>$this->user->groups($this->session->userdata('user_id')),
+        ));
+    }
     function index(){
         redirect ('main/login');
     }
@@ -10,6 +15,7 @@ class Main extends CI_Controller{
         $this->twig->display('login/login', []);
     }
     function logout(){
+        $this->ion_auth->logout();
         redirect ('main/login');
     }
     function signin(){

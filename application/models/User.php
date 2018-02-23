@@ -13,7 +13,10 @@ class User extends CI_Model{
         return sha1($rand);
     }
     function getcurrentgroup(){
-        return $_SESSION['currentgroup'];
+        if(isset($_SESSION['currentgroup'])){
+            return $_SESSION['currentgroup'];
+        }
+        redirect('/main/login');
     }
     function get($id){
         $sql = "select id,username,email,password,salt from users ";
