@@ -17,7 +17,7 @@ class Surveys extends CI_Controller{
             'objs'=>$this->client->gets(getsegment(),4),
             'totalrows'=>$totalrows,
             'links'=>getpaginationlink('/surveys/index',$totalrows),
-            'menus'=>salesmenus(),
+            'menus'=>getmenus($this->user->getcurrentgroup()),
             'user'=>$this->user->get($this->session->userdata('user_id')),
             'groups'=>$this->user->groups($this->session->userdata('user_id')),
             'currentgroup'=>$this->user->getcurrentgroup()
