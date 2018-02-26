@@ -126,4 +126,4 @@ $autoload['language'] = array();
 |
 |	$autoload['model'] = array('first_model' => 'first');
 */
-$autoload['model'] = array('client','ion_auth_model','user');
+$autoload['model'] = array('client','ion_auth_model','ticket','user');

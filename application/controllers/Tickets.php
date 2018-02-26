@@ -12,9 +12,9 @@ class Tickets extends CI_Controller{
         ));
     }
     function index(){
-        $totalrows = $this->client->totalrows();
+        $totalrows = $this->ticket->totalrows();
         $this->twig->display('ts/tickets/index', array(
-            'objs'=>$this->client->gets(getsegment(),4),
+            'objs'=>$this->ticket->gets(getsegment(),4),
             'totalrows'=>$totalrows,
             'links'=>getpaginationlink('/tickets/index',$totalrows),
             'menus'=>getmenus($this->user->getcurrentgroup()),
