@@ -6,6 +6,7 @@
 <!--[if IE]>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <![endif]-->
+<script src="/assets/jqueries/jquery-ui.1.12.1.min.js"></script>
 <!--[if !IE]>-->
 <script type="text/javascript">
     window.jQuery || document.write("<script src='/assets/ace/assets/js/jquery-2.0.3.min.js'>"+"<"+"/script>");
@@ -43,6 +44,8 @@ window.jQuery || document.write("<script src='/assets/ace/assets/js/jquery-1.10.
             console.log("Sukses",res);
             if(res==="sukses"){
                 window.location.href = '/main/choosegroup/'
+            }else{
+                  $("#lblheader").effect( "bounce", {times:3,color:'red'}, 300 );
             }
         })
         .fail(function(err){
