@@ -5,7 +5,8 @@ class Ticket extends CI_Model{
         parent::__construct();
     }
     function gets($offset,$segment){
-        $sql = "select a.kdticket,a.clientname,a.location,a.subject from tickets a ";
+        $sql = "select a.kdticket,a.clientname,a.location,a.subject,a.create_date,a.reporter,";
+        $sql.= "case status when '0' then 'open' when '1' then 'closed' end status from tickets a ";
         $sql.= "limit " . $offset . " , " . $segment . " ";
         $ci = & get_instance();
         $qry = $ci->db->query($sql);

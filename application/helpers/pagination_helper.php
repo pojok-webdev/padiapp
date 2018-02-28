@@ -18,7 +18,7 @@ function getpaginationlink($baseurl,$totalrows){
 function getsegment(){
     $ci = & get_instance();
     if($ci->uri->total_segments()<3){
-        $segment = 1;
+        $segment = 0;
     }else{
         $segment = $ci->uri->segment(3);
     }
