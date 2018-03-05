@@ -1,6 +1,6 @@
 <div class="ace-settings-container" id="ace-settings-container">
     <div class="btn btn-app btn-mini btn-warning ace-settings-btn" id="ace-settings-btn">
-        <i class="icon-cog bigger-150"></i>
+        <i class="icon-cog bigger-150 btnsetting"></i>
     </div>
     <div class="ace-settings-box" id="ace-settings-box">
         {% for role in groups %}
@@ -14,4 +14,7 @@
     $('.rolechange').click(function(){
         console.log('Role Name',$(this).html());
     });
+    $('.btnsetting').click(function(){
+        console.log('Hello...PadiNET');
+    })
 </script>
