@@ -12,6 +12,7 @@ function tsmenus(){
         array("name"=>"Installs","url"=>"/padiapp/installs","class"=>"icon-text-width"),
         array("name"=>"Tickets","url"=>"/padiapp/tickets","class"=>"icon-dashboard"),
         array("name"=>"Troubleshoots","url"=>"/padiapp/troubleshoots","class"=>"icon-dashboard"),
+        array("name"=>"Master BTS","url"=>"/padiapp/btses","class"=>"icon-dashboard"),
     );
 }
 function salesmenus(){

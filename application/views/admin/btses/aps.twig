@@ -37,16 +37,7 @@
 			</div>
 			<div class="main-content">
 				<div class="breadcrumbs" id="breadcrumbs">
-					<ul class="breadcrumb">
-						<li>
-							<i class="icon-home home-icon"></i>
-							<a href="/">Home</a>
-							<span class="divider">
-								<i class="icon-angle-right arrow-icon"></i>
-							</span>
-						</li>
-						<li class="active">Users</li>
-					</ul><!--.breadcrumb-->
+					{{ include("/commons/breadcrumb.twig") }}
 					<div class="nav-search" id="nav-search">
 						<form class="form-search" />
 							<span class="input-icon">
@@ -59,7 +50,7 @@
 				<div class="page-content">
 					<div class="page-header position-relative">
 						<h1>
-							<a href="#modal-table" role="button" class="btn btn-alert green" data-toggle="modal"> Penambahan Survey </a>
+							<a href="#modal-table" role="button" class="btn btn-alert green" data-toggle="modal"> Penambahan BTS </a>
 						</h1>
 					</div><!--/.page-header-->
 					<div class="row-fluid">
@@ -67,20 +58,20 @@
 							<!--PAGE CONTENT BEGINS-->
 							<div class="row-fluid">
 								<div class="table-header">
-									Users ({{ totalrows }})
+									BTS ({{ totalrows }})
 								</div>
 								<table id="sample-table-2" class="table table-striped table-bordered table-hover">
 									<thead>
 										<tr>
 											<th>Nama</th>
-											<th>Email</th>
-											<th class="hidden-480">Tgl Survey</th>
+											<th>IP Addr</th>
+											<th class="hidden-480">Keterangan</th>
 											<th class="hidden-phone">
-												<i class="icon-time bigger-110 hidden-phone"></i>
-												PIC
+												<i class="icon-th bigger-110 hidden-phone"></i>
+												Keterangan
 											</th>
-											<th class="hidden-480">Status</th>
-
+											<th class="hidden-480">Jml AP</th>
+											<th>Jml Pelanggan</th>
 											<th>Aksi</th>
 										</tr>
 									</thead>
@@ -88,14 +79,17 @@
 										{% for obj in objs %}
 										<tr>
 											<td>
-												<a href="#">{{ obj.username }}</a>
+												<a href="#">{{ obj.name }}</a>
 											</td>
-											<td>{{ obj.email }}</td>
-											<td class="hidden-480">{{ obj.tglsurvey }}</td>
-											<td class="hidden-phone">{{ obj.pic }}</td>
+											<td>{{ obj.ipaddr }}</td>
+											<td class="hidden-480">{{ obj.description }}</td>
+											<td class="hidden-phone">{{ obj.description }}</td>
 											<td class="center hidden-480">
-												<span class="label label-warning">{{ obj.status }}</span>
+												<span class="label label-warning">
+													<a href="/btses/ap/{{ obj.id }}">{{ obj.apcount }}</a>
+												</span>
 											</td>
+											<td>{{ obj.clcount }}</td>
 											<td class="td-actions">
 												<div class="btn-group">
 													<button data-toggle="dropdown" class="btn btn-inverse btn-mini dropdown-toggle">

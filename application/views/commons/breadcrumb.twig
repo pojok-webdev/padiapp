@@ -1,0 +1,14 @@
+<ul class="breadcrumb">
+    <li>
+        <i class="icon-home home-icon"></i>
+        <a href="/">{{ breadcrumb[0].name }}</a>
+        <span class="divider">
+            <i class="icon-angle-right arrow-icon"></i>
+        </span>
+    </li>
+    <li><a href="{{ breadcrumb[1].url }}">{{ breadcrumb[1].name }}</a></li>
+    <span class="divider">
+        <i class="icon-angle-right arrow-icon"></i>
+    </span>
+<li class="active"><a href="{{ breadcrumb[2].url }}">{{ breadcrumb[2].name }}</a></li>
+</ul><!--.breadcrumb-->
